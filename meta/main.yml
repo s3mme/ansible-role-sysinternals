@@ -1,0 +1,13 @@
+galaxy_info:
+  role_name: sysinternals
+  namespace: s3mme
+  author: s3mme
+  description: Installs the SysInternals Suite on Windows hosts and optionally accepts the EULA and adds tools to PATH
+  license: MIT
+  min_ansible_version: "2.10"
+
+  galaxy_tags:
+    - windows
+    - sysinternals
+    - tools
+    - monitoring

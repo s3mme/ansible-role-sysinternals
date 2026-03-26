@@ -1,0 +1,6 @@
+---
+sysinternals_tools_path: "C:\\Tools\\"
+sysinternals_url: "https://download.sysinternals.com/files/SysinternalsSuite.zip"
+sysinternals_path: "{{ tools_path }}\\SysInternals"
+sysinternals_add_to_path: true
+sysinternals_accept_eula: true

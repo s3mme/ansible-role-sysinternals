@@ -1,0 +1,40 @@
+---
+- name: Agree to EULA
+  ansible.windows.win_regedit:
+    path: HKCU:\Software\Sysinternals\{{ item }}
+    name: EulaAccepted
+    type: dword
+    data: 1
+  loop:
+    - AccessChk
+    - AutoRuns
+    - DbgView
+    - Junction
+    - LiveKd
+    - LogonSessions
+    - PendMove
+    - ProcDump
+    - Process Explorer
+    - Process Monitor
+    - PsExec
+    - PsList
+    - PsLoggedon
+    - PsLoglist
+    - PsPing
+    - PsService
+    - SDelete
+    - sigcheck
+    - Strings
+    - TCPView
+    - VMMap
+    - Whois
+    - Winobj
+    - ZoomIt
+  when: sysinternals_accept_eula
+
+- name: Add sysinternals to PATH
+  ansible.windows.win_path:
+    state: present
+    scope: machine
+    elements: "{{ sysinternals_path }}"
+  when: sysinternals_add_to_path

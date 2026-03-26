@@ -1,0 +1,15 @@
+---
+- name: Ensure Tools folder is present
+  ansible.windows.win_file:
+    path: "{{ tools_path }}"
+    state: directory
+- name: Download Sysinternals Suite
+  ansible.windows.win_get_url:
+    url: "{{ sysinternals_url }}"
+    dest: "{{ tools_path }}"
+
+- name: Unzip binaries
+  community.windows.win_unzip:
+    delete_archive: yes
+    src: "{{ tools_path }}\\SysinternalsSuite.zip"
+    dest: "{{ sysinternals_path }}"
